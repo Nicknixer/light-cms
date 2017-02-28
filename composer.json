@@ -1,0 +1,11 @@
+{
+    "name": "nickn/simple-cms",
+    "description": "A simple CMS on Slim Framework",
+    "authors": [
+        {
+            "name": "Nick Sergeychuk",
+            "email": "nicknixer@gmail.com"
+        }
+    ],
+    "require": {}
+}
