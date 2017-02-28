@@ -7,5 +7,7 @@
             "email": "nicknixer@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "slim/slim": "^3.7"
+    }
 }
