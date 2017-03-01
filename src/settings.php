@@ -6,7 +6,7 @@ return [
         'db' => [
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'task',
+            'database' => 'simple_cms',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',

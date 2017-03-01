@@ -9,9 +9,19 @@ $app->get('/', function (Request $request, Response $response) {
 });
 
 $app->get('/{page}', function (Request $request, Response $response) {
-    $page = $request->getAttribute('page');
+    $page_url = $request->getAttribute('page');
+
+    $pages = $this->get('db')->table('page');
+    $pages->where('url', $page_url);
+    $pages->where('is_visible', 1);
+    $page = $pages->first();
+
+    if(empty($page)) {
+        return $response->write("NotFound");
+    }
 
     return $this->view->render($response, 'page.html.twig', [
-        'body' => $page.' Page',
+        'title' => $page->title,
+        'body' => $page->body,
     ]);
 });
