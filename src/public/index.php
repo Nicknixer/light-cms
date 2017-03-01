@@ -5,32 +5,24 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 require '../../vendor/autoload.php';
 
-$container = new \Slim\Container;
-$app = new \Slim\App($container);
+$config = [
+    'settings' => [
+        'db' => [
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'database' => 'task',
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+        ],
+    ],
+];
 
-$container = $app->getContainer();
+$app = new \Slim\App($config);
 
-$container['settings']['db'] = [
-        'driver' => 'mysql',
-        'host' => 'localhost',
-        'database' => 'task',
-        'username' => 'root',
-        'password' => '',
-        'charset'   => 'utf8',
-        'collation' => 'utf8_unicode_ci',
-        'prefix'    => '',
-    ];
-
-$container['db'] = function ($container) {
-
-    $capsule = new \Illuminate\Database\Capsule\Manager;
-    $capsule->addConnection($container['settings']['db']);
-
-    $capsule->setAsGlobal();
-    $capsule->bootEloquent();
-
-    return $capsule;
-};
+require '../dependencies.php';
 
 $app->get('/', function (Request $request, Response $response) {
 
