@@ -16,7 +16,7 @@ $container['db'] = function ($container) {
 
 $container['view'] = function ($container) {
     $view = new \Slim\Views\Twig('../templates', [
-        'cache' => '../templates/cache'
+        //'cache' => '../templates/cache'
     ]);
 
     // Instantiate and add Slim specific extension

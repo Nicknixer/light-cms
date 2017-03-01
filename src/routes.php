@@ -10,7 +10,8 @@ $app->get('/', function (Request $request, Response $response) {
 
 $app->get('/{page}', function (Request $request, Response $response) {
     $page = $request->getAttribute('page');
-    $response->getBody()->write('Page: '.$page);
 
-    return $response;
+    return $this->view->render($response, 'page.html.twig', [
+        'body' => $page.' Page',
+    ]);
 });

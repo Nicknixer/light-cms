@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>{% block title %}Title{% endblock %}</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+    {% block bar %}
+        <div class="top-bar">
+            <div id="logo_container">
+                <div class="nav-block">
+                    <a href="/" class="nav_button">Главная</a>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+<div class="content">
     {% block body %}
         Body
     {% endblock %}
+</div>
+
 </body>
 </html>
